@@ -23,7 +23,6 @@ module Fluent
 		def filter(tag, time, record)
 			uri_string = record[@key_name]
 			record.delete(@key_name) if @delete_key
-			puts uri_string.nil?
 			unless uri_string.nil?
 				uri_detail = @uri_cache.getset(uri_string){get_uri_detail(uri_string)}
 				if flatten
